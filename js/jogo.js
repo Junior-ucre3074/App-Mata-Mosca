@@ -14,6 +14,11 @@ gameScreen();
 function randomPosition() {
     let posicaoX = Math.floor(Math.random() * largura) - 90;
     let posicaoY = Math.floor(Math.random() * altura) - 90;
+    let flyEx = document.getElementById('fly');
+
+    if(flyEx){
+        flyEx.remove();
+    }
 
     posicaoX = posicaoX < 0 ? 0 : posicaoX;
     posicaoY = posicaoY < 0 ? 0 : posicaoY;
@@ -27,10 +32,11 @@ function randomPosition() {
     fly.style.left = posicaoX + 'px';
     fly.style.top = posicaoY + 'px';
     fly.style.position = 'absolute';
+    fly.id = 'fly';
 
     document.body.appendChild(fly);
 
-    console.log(randomSide());
+    
 
 
 
