@@ -12,19 +12,21 @@
 
     <div class="painel">
         <div class="vidas">
-            <img src="img/emptyHeart.png" alt="">
-            <img src="img/fullHearted.png" alt="">
-            <img src="img/fullHearted.png" alt="">
+            <img id="v1" src="img/fullHearted.png" alt="">
+            <img id="v2" src="img/fullHearted.png" alt="">
+            <img id="v3" src="img/fullHearted.png" alt="">
         </div>
-        <div class="cronometro">Tempo Restante ? </div>
+        <div class="cronometro">Tempo Restante <span id="cronometro"></span></div>
     </div>
     
     
 
     <script>
-    setInterval(function(){
+    
+    document.getElementById('cronometro').innerHTML = tempo;
+    let criaMosca = setInterval(function(){
         randomPosition();
-    },1000)
+    },2000)
     </script>
 </body>
 </html>
