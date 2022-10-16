@@ -4,6 +4,26 @@ let largura = 0;
 let vidas = 1;
 let tempo = 15;
 
+let criaMoscaTempo = 1500;
+
+let nivel = location.search
+
+nivel = nivel.replace('?' , '')
+
+
+if(nivel === 'normal') {
+	//1500
+	criaMoscaTempo = 1500
+} else if(nivel === 'dificil') {
+	//1000
+	criaMoscaTempo = 1000
+} else if (nivel === 'chucknorris') {
+	//750
+	criaMoscaTempo = 750
+}
+    
+
+
 function gameScreen() {
     altura = window.innerHeight;
     largura = window.innerWidth;
@@ -13,21 +33,21 @@ function gameScreen() {
 
 gameScreen();
 
-let cronometro = setInterval(function(){
-    
-    tempo -=1;
-    if(tempo < 0){
+let cronometro = setInterval(function () {
+
+    tempo -= 1;
+    if (tempo < 0) {
         clearInterval(cronometro);
         clearInterval(criaMosca);
         window.location.href = 'vitoria.html';
-    }else{
+    } else {
         document.getElementById('cronometro').innerHTML = tempo;
     }
-    
-   
-    
-    
-},1000);
+
+
+
+
+}, 1000);
 
 function randomPosition() {
     let posicaoX = Math.floor(Math.random() * largura) - 90;
@@ -35,17 +55,17 @@ function randomPosition() {
     let flyEx = document.getElementById('fly');
     let life = document.getElementById('v' + vidas);
 
-    if(flyEx){
+    if (flyEx) {
         flyEx.remove();
-        if(vidas > 3){
+        if (vidas > 3) {
             window.location.href = 'game_over.html';
-        }else{
+        } else {
             life.src = "./img/emptyHeart.png"
 
-             vidas ++;
+            vidas++;
         }
 
-       
+
     }
 
     posicaoX = posicaoX < 0 ? 0 : posicaoX;
@@ -61,21 +81,21 @@ function randomPosition() {
     fly.style.top = posicaoY + 'px';
     fly.style.position = 'absolute';
     fly.id = 'fly';
-    fly.onclick = function(){
+    fly.onclick = function () {
         this.remove();
     }
 
     document.body.appendChild(fly);
 
-    
 
 
 
 
- }
+
+}
 
 
- function randomSize() {
+function randomSize() {
     let classe = Math.floor(Math.random() * 3);
 
     switch (classe) {
@@ -87,21 +107,21 @@ function randomPosition() {
             return 'fly3'
     }
 
- }
-    function randomSide() {
-        let classe = Math.floor(Math.random() * 2);
-    
-        switch (classe) {
-            case 0:
-                return 'sideA'
-            case 1:
-                return 'sideB'
-    
-    
-        }
 }
- 
-    
+function randomSide() {
+    let classe = Math.floor(Math.random() * 2);
+
+    switch (classe) {
+        case 0:
+            return 'sideA'
+        case 1:
+            return 'sideB'
+
+
+    }
+}
+
+
 
 
 

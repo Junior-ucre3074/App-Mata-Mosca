@@ -1,3 +1,7 @@
+html{
+  cursor: url(../img/flySwatter.png) 30 30 auto;
+}
+
 body{
     background-image: url(../img/background-initial.jpg);
     background-repeat: no-repeat;
